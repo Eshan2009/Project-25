@@ -9,7 +9,7 @@ class Dustbin
 		this.wallThickness=20;
 		this.angle=0;	
 
-		this.image = loadImage("dustbingreen.png");
+		
 		
 		this.bottomBody=Bodies.rectangle(this.x, this.y, this.dustbinWidth, this.wallThickness, {isStatic:true})
 		this.leftWallBody=Bodies.rectangle(this.x-this.dustbinWidth/2, this.y-this.dustbinHeight/2, this.wallThickness, this.dustbinHeight, {isStatic:true})
@@ -17,6 +17,7 @@ class Dustbin
 		
 
 		this.rightWallBody=Bodies.rectangle(this.x+this.dustbinWidth/2, this.y-this.dustbinHeight/2, this.wallThickness, this.dustbinHeight, {isStatic:true})
+		this.image = loadImage("dustbingreen.png");
 		Matter.Body.setAngle(this.rightWallBody, -1*this.angle);
 		World.add(world, this.bottomBody)
 		World.add(world, this.leftWallBody)
@@ -36,10 +37,10 @@ class Dustbin
 			rectMode(CENTER)
 			//strokeWeight(4);
 			angleMode(RADIANS)
-			fill(255)
-			stroke(255)
+			fill(155)
+			stroke(155)
 			rotate(this.angle)
-			rect(0,0,this.wallThickness, this.dustbinHeight);
+			//image(0,0,this.wallThickness, this.dustbinHeight);
 			pop()
 
 			push()
@@ -48,19 +49,19 @@ class Dustbin
 			//strokeWeight(4);
 			stroke(255)
 			angleMode(RADIANS)
-			fill(255)
+			fill(155)
 			rotate(-1*this.angle)
-			rect(0,0,this.wallThickness, this.dustbinHeight);
+			//image(0,0,this.wallThickness, this.dustbinHeight);
 			pop()
 
 			push()
 			translate(posBottom.x, posBottom.y);
 			rectMode(CENTER)
 			//strokeWeight(4);
-			stroke(255)
+			stroke(155)
 			angleMode(RADIANS)
-			fill(255)
-			rect(0,0,this.dustbinWidth, this.wallThickness);
+			fill(155)
+			image(this.image,0,-this.dustbinHeight/2-30,this.dustbinWidth, this.dustbinHeight);
 			pop()
 			
 	}
